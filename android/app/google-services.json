@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1069683079004",
+    "project_id": "fungusfocus-mushroom-app",
+    "storage_bucket": "fungusfocus-mushroom-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069683079004:android:4dd768379a97c505b8f399",
+        "android_client_info": {
+          "package_name": "com.example.fungus_focus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpd8vWuP0YEMwQ7mUFz-sMv1fpg6UaCPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
