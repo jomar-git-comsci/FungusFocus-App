@@ -32,6 +32,33 @@ class FirebaseUserRepo implements UserRepository {
       }
     });
   }
+
+  @override
+  Future<MyUser?> getCurrentUser() async {
+    final firebaseUser = _firebaseAuth.currentUser;
+    if (firebaseUser == null) {
+      return MyUser.empty;
+    }
+    
+    try {
+      final userDoc = await usersCollection.doc(firebaseUser.uid).get();
+      if (userDoc.exists) {
+        return MyUser.fromEntity(MyUserEntity.fromDocument(userDoc.data()!));
+      } else {
+        // User exists in Firebase Auth but not in Firestore
+        // You might want to create a Firestore document for this user or handle this case differently
+        return MyUser(
+          userId: firebaseUser.uid,
+          email: firebaseUser.email ?? '',
+          name: firebaseUser.displayName ?? '',
+          hasActiveCart: false,  // default value
+        );
+      }
+    } catch (e) {
+      log('Error getting current user: ${e.toString()}');
+      return MyUser.empty;
+    }
+  }
   
   @override
   Future<void> signIn(String email, String password)  async {

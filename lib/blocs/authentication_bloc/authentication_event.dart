@@ -14,3 +14,5 @@ class AuthenticationUserChanged extends AuthenticationEvent {
 
 }
 
+class AuthenticationStatusRequested extends AuthenticationEvent {}
+

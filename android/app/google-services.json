@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "1069683079004",
-    "project_id": "fungusfocus-mushroom-app",
-    "storage_bucket": "fungusfocus-mushroom-app.appspot.com"
+    "project_number": "941727191516",
+    "firebase_url": "https://mushroom-thesis-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "mushroom-thesis",
+    "storage_bucket": "mushroom-thesis.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1069683079004:android:4dd768379a97c505b8f399",
+        "mobilesdk_app_id": "1:941727191516:android:8546d0467053593f593f19",
         "android_client_info": {
           "package_name": "com.example.fungus_focus"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDpd8vWuP0YEMwQ7mUFz-sMv1fpg6UaCPk"
+          "current_key": "AIzaSyAlDEYthjjBWdr8Hspe_Fzm89NcPKcEQsU"
         }
       ],
       "services": {

@@ -12,19 +12,40 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
   late final StreamSubscription<MyUser?> _userSubscription;
 
   AuthenticationBloc({
-      required this.userRepository
+    required this.userRepository
   }) : super(const AuthenticationState.unknown()) {
+    on<AuthenticationStatusRequested>(_onAuthenticationStatusRequested);
+    on<AuthenticationUserChanged>(_onAuthenticationUserChanged);
+
     _userSubscription = userRepository.user.listen((user) {
       add(AuthenticationUserChanged(user));
     });
 
-    on<AuthenticationUserChanged>((event, emit) {
-      if(event.user != MyUser.empty) {
-        emit(AuthenticationState.authenticated(event.user!));
-      } else {
-        emit(const AuthenticationState.unauthenticated());
-      }
-    });
+    // Trigger initial authentication check
+    add(AuthenticationStatusRequested());
+  }
+
+  Future<void> _onAuthenticationStatusRequested(
+    AuthenticationStatusRequested event,
+    Emitter<AuthenticationState> emit,
+  ) async {
+    final user = await userRepository.getCurrentUser();
+    if (user != MyUser.empty) {
+      emit(AuthenticationState.authenticated(user!));
+    } else {
+      emit(const AuthenticationState.unauthenticated());
+    }
+  }
+
+  void _onAuthenticationUserChanged(
+    AuthenticationUserChanged event,
+    Emitter<AuthenticationState> emit,
+  ) {
+    if (event.user != MyUser.empty) {
+      emit(AuthenticationState.authenticated(event.user!));
+    } else {
+      emit(const AuthenticationState.unauthenticated());
+    }
   }
 
   @override

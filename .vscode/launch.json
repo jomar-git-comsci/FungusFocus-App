@@ -1,0 +1,65 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "fungus_focus",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "fungus_focus (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "fungus_focus (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "mushroom_repository",
+            "cwd": "packages\\mushroom_repository",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "mushroom_repository (profile mode)",
+            "cwd": "packages\\mushroom_repository",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "mushroom_repository (release mode)",
+            "cwd": "packages\\mushroom_repository",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "user_repository",
+            "cwd": "packages\\user_repository",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "user_repository (profile mode)",
+            "cwd": "packages\\user_repository",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "user_repository (release mode)",
+            "cwd": "packages\\user_repository",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

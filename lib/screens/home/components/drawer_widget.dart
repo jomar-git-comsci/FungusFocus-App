@@ -1,5 +1,6 @@
 // lib/widgets/custom_drawer.dart
 import 'package:flutter/material.dart';
+import 'package:fungus_focus/screens/home/views/video_camera.dart';
 import 'package:fungus_focus/screens/home/views/water_screen.dart';
 
 import '../views/home_screen.dart';
@@ -55,8 +56,8 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.water_drop, color: Colors.white,),
-            title: const Text('Water', style: TextStyle(
+            leading: const Icon(Icons.tune, color: Colors.white,),
+            title: const Text('Manual', style: TextStyle(
               color: Colors.white,
             ),),
             onTap: () {
@@ -73,11 +74,12 @@ class CustomDrawer extends StatelessWidget {
             title: const Text('Camera', style: TextStyle(
               color: Colors.white,
             ),),
-            onTap: () {
+            onTap: () { 
 
-              //TODO kulang pa nang navigation camera screen dito pero pwede naman tanggalin ano ba ilalagay sa camera medyo mahirap hahaha
-
-              Navigator.pop(context); 
+                Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const VideoStreamPage()),
+              );
             },
           ),
         ],
