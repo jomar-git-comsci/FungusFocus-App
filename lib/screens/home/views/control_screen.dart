@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:fungus_focus/screens/home/views/home_screen.dart';
 
-class VideoStreamPage extends StatefulWidget {
-  const VideoStreamPage({super.key});
+class ControlScreen extends StatefulWidget {
+  const ControlScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _VideoStreamPageState createState() => _VideoStreamPageState();
+  _ControlScreenState createState() => _ControlScreenState();
 }
 
-class _VideoStreamPageState extends State<VideoStreamPage> {
+class _ControlScreenState extends State<ControlScreen> {
   late final WebViewController _webViewController;
 
   @override
@@ -20,14 +20,14 @@ class _VideoStreamPageState extends State<VideoStreamPage> {
     super.initState();
     _webViewController = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..loadRequest(Uri.parse('https://qjj7uv6qwfdc.connect.remote.it/video_feed')); 
+      ..loadRequest(Uri.parse('https://f4lylfcj53hq.connect.remote.it')); 
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Raspberry Pi Camera Stream'),
+        title: const Text(''),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -42,3 +42,4 @@ class _VideoStreamPageState extends State<VideoStreamPage> {
     );
   }
 }
+

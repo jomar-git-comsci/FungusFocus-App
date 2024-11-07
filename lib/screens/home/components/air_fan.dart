@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class VentilationCard extends StatefulWidget {
   final String title;
@@ -17,7 +19,45 @@ class VentilationCard extends StatefulWidget {
 }
 
 class _VentilationCardState extends State<VentilationCard> {
-  bool isFanning = false;  
+  bool isFanning = false;
+
+final String remoteItUrl = 'https://gbuy3qfzfemb.connect.remote.it/control';
+
+  Future<void> toggleFan() async {
+    try {
+      if (!isFanning) {
+        final response = await http.post(
+          Uri.parse('$remoteItUrl/activate_fan'),
+          headers: {'Content-Type': 'application/json'},
+        );
+        if (response.statusCode == 200) {
+          setState(() {
+            isFanning = true;
+          });
+        } else {
+          throw Exception('Failed to activate fan');
+        }
+      } else {
+        final response = await http.post(
+          Uri.parse('$remoteItUrl/deactivate_fan'),
+          headers: {'Content-Type': 'application/json'},
+        );
+        if (response.statusCode == 200) {
+          setState(() {
+            isFanning = false;
+          });
+        } else {
+          throw Exception('Failed to deactivate fan');
+        }
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to control fan: $e')),
+      );
+    }
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -52,11 +92,7 @@ class _VentilationCardState extends State<VentilationCard> {
             ),
             const SizedBox(height: 16),
             GestureDetector(
-              onTap: () {
-                setState(() {
-                  isFanning = !isFanning;
-                });
-              },
+              onTap: toggleFan,
               child: Container(
                 padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                 decoration: BoxDecoration(

@@ -1,7 +1,7 @@
 // lib/widgets/custom_drawer.dart
 import 'package:flutter/material.dart';
 import 'package:fungus_focus/screens/home/views/video_camera.dart';
-import 'package:fungus_focus/screens/home/views/water_screen.dart';
+import 'package:fungus_focus/screens/home/views/control_screen.dart';
 
 import '../views/home_screen.dart';
 
@@ -65,7 +65,7 @@ class CustomDrawer extends StatelessWidget {
               // navigate to water screen
                Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const WaterScreen()),
+                MaterialPageRoute(builder: (context) => const ControlScreen()),
               );
             },
           ),
